@@ -11,6 +11,8 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
+            - name: Pull docker image
+              run: docker pull ${{ secrets.DOCKER_USERNAME }}/news-letter:latest
             - name: Run docker container
-              run: docker run -d -p 3001:3001 --name test-${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/news-letter:${{ github.sha }}
+              run: docker run -d -p 3001:3001 --name test-${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/news-letter:latest
 
