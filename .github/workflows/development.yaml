@@ -2,7 +2,7 @@ name: "Development Workflow"
 on:
     push:
         paths-ignore:
-            - 'test.yaml'
+            - '.github/workflows/test.yaml'
 
 jobs:
     dockerhub:
