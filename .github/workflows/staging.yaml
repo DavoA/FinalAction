@@ -12,5 +12,5 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Run docker container
-              run: docker run -d -p 3002:3002 --name test-$(basename ${GITHUB_REF}) ${{ secrets.DOCKER_USERNAME }}/news-letter:latest
+              run: docker run -d -p 3002:3000 --name test-$(basename ${GITHUB_REF}) ${{ secrets.DOCKER_USERNAME }}/news-letter:latest
   
