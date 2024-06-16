@@ -1,6 +1,8 @@
 name: "Development Workflow"
 on:
     push:
+        paths-ignore:
+            - 'test.yml'
 
 jobs:
     dockerhub:
@@ -26,6 +28,7 @@ jobs:
                 push: true
     docker-run:
         runs-on: self-hosted
+        needs: dockerhub
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
