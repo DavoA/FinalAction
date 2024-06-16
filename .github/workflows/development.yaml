@@ -24,7 +24,9 @@ jobs:
               uses: docker/build-push-action@v4
               with:
                 context: .
-                tags: ${{ secrets.DOCKER_USERNAME }}/news-letter:${{ github.sha }}
+                tags: |
+                    ${{ secrets.DOCKER_USERNAME }}/news-letter:${{ github.sha }}
+                    ${{ secrets.DOCKER_USERNAME }}/news-letter:latest
                 push: true
     docker-run:
         runs-on: self-hosted
