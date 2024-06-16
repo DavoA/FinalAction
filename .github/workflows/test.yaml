@@ -1,0 +1,15 @@
+name: "Test Workflow"
+on:
+    push:
+        paths:
+            - 'test.yml'
+
+jobs:
+    docker-run:
+        runs-on: self-hosted
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Run docker container
+              run: docker run -d -p 3001:3001 --name test-${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/news-letter:latest
